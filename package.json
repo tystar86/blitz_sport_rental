@@ -37,6 +37,7 @@
   "dependencies": {
     "@prisma/cli": "~2.12",
     "@prisma/client": "~2.12",
+    "@react-native-community/eslint-plugin": "1.1.0",
     "blitz": "0.27.1",
     "cross-env": "7.0.3",
     "cypress": "6.2.0",

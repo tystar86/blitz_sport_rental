@@ -1,17 +1,12 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the main branch
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    branches: [master]
 
 jobs:
   lint:
@@ -20,9 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v1
         with:
-          node-version: "14"
+          node-version: "14.15.3"
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -35,9 +30,9 @@ jobs:
             **/node_modules
             /home/runner/.cache/Cypress
             C:\Users\runneradmin\AppData\Local\Cypress\Cache
-          key: ${{ runner.os }}-${{ runner.node_version}}-yarn-v4-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-yarn-v3-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-${{ runner.node_version}}-yarn-v4-
+            ${{ runner.os }}-yarn-v3-
       - name: Install dependencies
         run: yarn install --frozen-lockfile --silent
         env:
@@ -47,19 +42,17 @@ jobs:
         env:
           CI: true
   build_and_test:
-    timeout-minutes: 30
-    name: Apps Tests
+    name: Build & Test
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        node_version: [12, 14]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node_version }}
+          node-version: "14.15.3"
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -71,9 +64,9 @@ jobs:
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             /home/runner/.cache/Cypress
             C:\Users\runneradmin\AppData\Local\Cypress\Cache
-          key: ${{ runner.os }}-${{ runner.node_version}}-yarn-v4-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-yarn-v2-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-${{ runner.node_version}}-yarn-v4-
+            ${{ runner.os }}-yarn-v2-
       - name: Install dependencies
         run: yarn install --frozen-lockfile --silent
         env:
@@ -89,5 +82,4 @@ jobs:
         run: yarn test:ci
         env:
           CI: true
-          DATABASE_URL: "file:./sqlite.db" 
-
+          DATABASE_URL: "file:./sqlite.db"
