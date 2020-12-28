@@ -1,0 +1,5 @@
+# Prisma Migrate lockfile v1
+
+20201228142751-initial
+20201228145117-add_models
+20201228151955-optional_category

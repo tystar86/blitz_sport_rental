@@ -10,7 +10,7 @@ const Layout = ({ title, children }: LayoutProps) => {
   return (
     <>
       <Head>
-        <title>{title || "blitz_sp"}</title>
+        <title>{title || "blitz_sport_rental"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
