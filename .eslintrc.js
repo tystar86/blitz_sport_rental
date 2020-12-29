@@ -2,7 +2,7 @@ module.exports = {
   env: {
     es2020: true,
   },
-  extends: ["react-app", "plugin:jsx-a11y/recommended"],
+  extends: ["react-app", "plugin:jsx-a11y/recommended", "plugin:cypress/recommended"],
   plugins: ["jsx-a11y"],
   rules: {
     "import/no-anonymous-default-export": "error",

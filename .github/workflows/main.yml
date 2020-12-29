@@ -37,8 +37,8 @@ jobs:
         run: yarn install --frozen-lockfile --silent
         env:
           CI: true
-      - name: yarn lint
-        run: yarn lint
+      - name: npm run lint
+        run: npm run lint
         env:
           CI: true
   build_and_test:
