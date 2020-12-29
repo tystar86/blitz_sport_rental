@@ -6,10 +6,10 @@
     "studio": "blitz db studio",
     "build": "blitz build",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
-    "test": "jest",
+    "test": "jest --runTestsByPath app/**/*.test.ts*",
     "test:coverage": "jest --coverage",
-    "test:server": "blitz db migrate && blitz start --production -p 3000",
-    "test:e2e": "cross-env NODE_ENV=test start-server-and-test test:server http://localhost:3000 cy:run",
+    "test:start": "blitz db migrate && blitz start --production -p 3000",
+    "test:ci": "cross-env NODE_ENV=test start-server-and-test test:start http://localhost:3000 cy:run",
     "test:watch": "jest --watch",
     "cy:run": "cypress run"
   },
