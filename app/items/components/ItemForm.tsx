@@ -1,33 +1,13 @@
 import React from "react"
-// import 'alpinejs';
 
 type ItemFormProps = {
   initialValues: any
   onSubmit: React.FormEventHandler<HTMLFormElement>
 }
 
-// window.counter = function() {
-//   return {
-//     count: 0,
-//     inc() {
-//       this.count += 1;
-//     }
-//   };
-// };
-
-// const alpineTemplate = `<div x-data="{ open: false }">
-// <button @click="open = true">Open Dropdown</button>
-// <ul x-show="open" @click.away="open = false">Dropdown Body</ul>
-// </div>`;
-
-// const AlpineWidget = () => (
-//   <div dangerouslySetInnerHTML={{__html: alpineTemplate}} />
-// );
-
 const ItemForm = ({ initialValues, onSubmit }: ItemFormProps) => {
   return (
     <>
-      {/* <AlpineWidget /> */}
       <div className="flex items-center justify-center">
         <form
           onSubmit={(event) => {
