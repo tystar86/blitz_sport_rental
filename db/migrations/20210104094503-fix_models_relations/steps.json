@@ -1,0 +1,63 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Image",
+      "field": "items",
+      "type": "Item",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Image",
+          "field": "items"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Image",
+          "field": "items"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[itemId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Image",
+          "field": "items"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Image",
+      "field": "itemId",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Image",
+      "field": "item"
+    }
+  ]
+}

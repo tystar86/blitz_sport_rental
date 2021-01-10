@@ -3,3 +3,8 @@
 20201228142751-initial
 20201228145117-add_models
 20201228151955-optional_category
+20210104092104-add_image
+20210104093441-create_relations_between_models
+20210104094503-fix_models_relations
+20210110091421-db_relations
+20210110092925-category_not_required

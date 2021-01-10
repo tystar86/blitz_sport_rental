@@ -1,0 +1,119 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Item",
+      "field": "sells",
+      "type": "Sell",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Item",
+          "field": "sells"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Item",
+          "field": "sells"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Item",
+          "field": "category"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Item",
+          "field": "category"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Sell",
+          "field": "customer"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Sell",
+          "field": "customer"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Image",
+      "field": "item",
+      "type": "Item",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Image",
+          "field": "item"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Image",
+          "field": "item"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Item",
+      "field": "categoryId",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Item",
+      "field": "category",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Item",
+          "field": "category"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[categoryId]"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Item",
+      "field": "sells",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Item",
+          "field": "sells"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Category",
+      "field": "items",
+      "type": "Item",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Image",
+      "field": "item",
+      "type": "Item",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Image",
+          "field": "item"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Image",
+          "field": "item"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[itemId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Image",
+          "field": "item"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Image",
+      "field": "items"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Image",
+          "field": "url"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Image",
+          "field": "url"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "\"data:image/jpeg;base64,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\""
+    }
+  ]
+}
