@@ -9,8 +9,11 @@ const NewItemPage: BlitzPage = () => {
 
   return (
     <div>
-      <h1>Create New Item</h1>
-
+      <p>
+        <Link href="/items">
+          <a>Items</a>
+        </Link>
+      </p>
       <ItemForm
         initialValues={{}}
         onSubmit={async () => {
@@ -31,12 +34,6 @@ const NewItemPage: BlitzPage = () => {
           }
         }}
       />
-
-      <p>
-        <Link href="/items">
-          <a>Items</a>
-        </Link>
-      </p>
     </div>
   )
 }
